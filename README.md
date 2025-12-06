@@ -7,7 +7,7 @@ Este repositorio contiene las evidencias de los codelabs opcionales desarrollado
 Cada carpeta incluye al menos un pantallazo que demuestra la ejecución o funcionamiento correspondiente.
 
 ### Estructura del Repositorio
-``
+```
 ├── codelab2/
 │   └── evidencia.png
 ├── codelab3/
@@ -15,4 +15,4 @@ Cada carpeta incluye al menos un pantallazo que demuestra la ejecución o funcio
 ├── codelab8/
 │   └── evidencia.png
 └── README.md
-``
+```
