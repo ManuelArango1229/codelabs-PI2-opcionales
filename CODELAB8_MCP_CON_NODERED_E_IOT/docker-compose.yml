@@ -1,0 +1,31 @@
+services:
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered-mcp
+    environment:
+      - TZ=America/Bogota
+      - FLOWS_FILE=flows.json
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./nodered/data:/data
+    networks:
+      - mcpnet
+
+  mcp-server:
+    build:
+      context: ./mcp-server
+    container_name: mcp-nodered-server
+    environment:
+      - NODE_ENV=production
+      - NODERED_URL=http://nodered:1880
+    depends_on:
+      - nodered
+    ports:
+      - "3000:3000"
+    networks:
+      - mcpnet
+
+networks:
+  mcpnet:
+    driver: bridge

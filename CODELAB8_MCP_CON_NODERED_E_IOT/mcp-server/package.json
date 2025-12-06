@@ -1,0 +1,14 @@
+{
+  "name": "mcp-nodered-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.24.3",
+    "express": "^4.19.0",
+    "zod": "^3.22.4"
+  }
+}

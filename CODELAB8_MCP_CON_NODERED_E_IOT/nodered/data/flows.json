@@ -1,0 +1,90 @@
+[
+{
+"id": "flow1",
+"type": "tab",
+"label": "mcp-demo",
+"disabled": false,
+"info": "Demo flow for MCP server integration"
+},
+{
+"id": "http1",
+"type": "http in",
+"z": "flow1",
+"name": "MCP LED endpoint",
+"url": "/device/led",
+"method": "post",
+"upload": false,
+"swaggerDoc": "",
+"x": 140,
+"y": 80,
+"wires": [
+[
+"json1"
+]
+]
+},
+{
+"id": "json1",
+"type": "json",
+"z": "flow1",
+"name": "",
+"property": "payload",
+"action": "",
+"pretty": false,
+"x": 340,
+"y": 80,
+"wires": [
+[
+"fn1"
+]
+]
+},
+{
+"id": "fn1",
+"type": "function",
+"z": "flow1",
+"name": "Procesar comando LED",
+"func": "node.warn(`LED command from MCP: ${JSON.stringify(msg.payload)}`);\n\nmsg.payload = {\nstatus: \"ok\",\nreceived: msg.payload\n};\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"libs": [],
+"x": 570,
+"y": 80,
+"wires": [
+[
+"debug1",
+"res1"
+]
+]
+},
+{
+"id": "debug1",
+"type": "debug",
+"z": "flow1",
+"name": "MCP LED debug",
+"active": true,
+"tosidebar": true,
+"console": false,
+"tostatus": false,
+"complete": "payload",
+"targetType": "msg",
+"statusVal": "",
+"statusType": "auto",
+"x": 820,
+"y": 40,
+"wires": []
+},
+{
+"id": "res1",
+"type": "http response",
+"z": "flow1",
+"name": "",
+"statusCode": "",
+"headers": {},
+"x": 820,
+"y": 120,
+"wires": []
+}
+]
